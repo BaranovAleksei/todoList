@@ -8,26 +8,28 @@ export type TaskType = {
 };
 
 type PropsType = {
+  id: string
   title: string;
   tasks: Array<TaskType>;
   filter: FilterValueType;
-  addTask: (taskTitle: string) => void;
-  removeTask: (taskId: string) => void;
-  changeFilter: (value: FilterValueType) => void;
-  changeStatus: (taskID: string, isDone: boolean) => void;
+  addTask: (taskTitle: string, todoListID: string) => void;
+  removeTask: (taskId: string, todoListID: string ) => void;
+  changeFilter: (value: FilterValueType, todoListID: string) => void;
+  changeStatus: (taskID: string, isDone: boolean,todoListID: string) => void;
+  removeTodoList: (todoListID: string) => void;
 };
 
 export function Todolist(props: PropsType) {
   const [title, setTitle] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
 
-  let tasks = props.tasks.map((t) => {
+  const tasks = props.tasks.map((t) => {
     const removeTask = () => {
-      props.removeTask(t.id);
+      props.removeTask(t.id, props.id);
     };
 
     const changeStatus = (e: ChangeEvent<HTMLInputElement>) => {
-      props.changeStatus(t.id, e.currentTarget.checked);
+      props.changeStatus(t.id, e.currentTarget.checked, props.id);
     };
 
     return (
@@ -41,7 +43,7 @@ export function Todolist(props: PropsType) {
 
   const addTask = () => {
     if (title.trim() !== "") {
-      props.addTask(title.trim());
+      props.addTask(title.trim(), props.id);
       setTitle("");
     } else {
       setError("Title is required!");
@@ -59,19 +61,21 @@ export function Todolist(props: PropsType) {
     }
   };
 
+  const removeTodoList = () => { props.removeTodoList(props.id) };
+
   const onSetAllFilterClick = () => {
-    props.changeFilter("all");
+    props.changeFilter("all", props.id);
   };
   const onSetActiveFilterClick = () => {
-    props.changeFilter("active");
+    props.changeFilter("active", props.id);
   };
   const onSetComplitedFilterClick = () => {
-    props.changeFilter("completed");
+    props.changeFilter("completed", props.id);
   };
 
   return (
     <div>
-      <h3>{props.title}</h3>
+      <h3>{props.title}<button onClick ={ removeTodoList }>X</button></h3>
       <div>
         <input
           value={title}
