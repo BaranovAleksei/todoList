@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { v1 } from "uuid";
-// import "./App.css";
 import { Todolist, TaskType } from "./Todolist";
 import {AddItemForm} from "./AddItemForm";
-
 import {AppBar, Button, Container, Grid, IconButton, Toolbar, Typography} from "@material-ui/core";
 import {Menu} from "@material-ui/icons";
 
@@ -13,8 +11,9 @@ export type TodoListType = {
   id: string
   title: string
   filter: FilterValueType
-};
-type TaskStateType = {
+}
+
+export type TaskStateType = {
   [key: string]: Array<TaskType>
 }
 
