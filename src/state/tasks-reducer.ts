@@ -69,15 +69,12 @@ type ActionType = removeTaskType | addTaskType
 	| changeTaskStatusType | changeTaskTitleType
 	| AddTodolistActionType | RemoveTodolistActionType
 
-export const tasksReducer = ( state: TaskStateType, action: ActionType): TaskStateType => {
+const initialState: TaskStateType = {}
+
+export const tasksReducer = ( state: TaskStateType = initialState, action: ActionType): TaskStateType => {
 	switch (action.type){
 
 		case ACTIONS_TYPE.REMOVE_TASK: {
-			// const stateCopy = {...state}
-			// const tasks = state[action.payload.todolistId]
-			// const filteredTasks = tasks.filter( t => t.id !== action.payload.id )
-			// stateCopy[action.payload.todolistId] = filteredTasks
-			// return stateCopy
 			return {...state, [action.payload.todolistId]: state[action.payload.todolistId]
 					.filter(task => task.id !== action.payload.id)}
 		}

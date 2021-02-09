@@ -1,11 +1,4 @@
-.App {
-  padding: 30px;
-  display: flex;
-}
 
-.App > div {
-  margin-right: 50px;
-}
 .error {
   border: 1px solid red;
 }
@@ -17,4 +10,7 @@
 }
 .is-done {
   opacity: 0.5;
+}
+.allTasks {
+  margin-top: 2%
 }
