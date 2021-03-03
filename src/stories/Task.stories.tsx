@@ -1,10 +1,10 @@
 import React from 'react';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
-import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { action } from '@storybook/addon-actions'
+import {action} from '@storybook/addon-actions'
 
 import {Task} from "../Task";
+import {TaskPriorities, TaskStatuses} from "../api/todolist-api";
 
 export default {
   title: 'Task Stories',
@@ -19,14 +19,16 @@ export const TaskBaseExample = (props: any) => {
   return (
     <div>
       <Task
-        task={{id: '1', isDone: true, title: 'CSS'}}
+        task={{id: '1', status: TaskStatuses.New, title: 'CSS', description: '',
+               priority: 0, startDate: '', deadline: '', todoListId: 'todolistId1', order: 0, addedDate: ''}}
         removeTask={removeCallback}
         changeTaskTitle={changeTitleCallback}
         changeTaskStatus={changeStatusCallback}
         todolistId={'todolistId1'}
       />
       <Task
-        task={{id: '2', isDone: false, title: 'JS'}}
+      task={{id: '1', status: TaskStatuses.New, title: 'CSS', description: '',
+          priority: 0, startDate: '', deadline: '', todoListId: 'todolistId1', order: 0, addedDate: ''}}
         removeTask={removeCallback}
         changeTaskTitle={changeTitleCallback}
         changeTaskStatus={changeStatusCallback}
