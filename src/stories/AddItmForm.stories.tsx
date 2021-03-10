@@ -3,7 +3,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { action } from '@storybook/addon-actions'
-import {AddItemForm} from "../AddItemForm";
+import {AddItemForm} from "../components/AddItemForm/AddItemForm";
 
 export default {
   title: 'AddItemForm Stories',

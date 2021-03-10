@@ -3,7 +3,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { action } from '@storybook/addon-actions'
-import App from "../App";
+import App from "../app/App";
 import {ReduxStoreProviderDecorator} from "./Decorators/ReduxStoreProviderDecorator";
 
 export default {
