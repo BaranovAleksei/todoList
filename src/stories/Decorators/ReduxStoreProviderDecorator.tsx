@@ -34,7 +34,7 @@ const initialGlobalState: AppRootStateType = {
 				startDate: '', deadline: '', addedDate: '', order: 0, priority: TaskPriorities.Low}
 		]
 	},
-	app: {status: "loading", error: null }
+	app: {status: "loading", error: null, isInitialized: true }
 };
 
 export const storyBookStore = createStore(rootReducer, initialGlobalState);
