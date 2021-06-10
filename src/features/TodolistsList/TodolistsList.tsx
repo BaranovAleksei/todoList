@@ -49,10 +49,10 @@ export const TodolistsList: React.FC = () => {
 		dispatch(thunk)
 	}, [])
 
-	const changeFilter = useCallback(function (value: FilterValuesType, todolistId: string) {
-		const action = changeTodolistFilterAC(todolistId, value)
-		dispatch(action)
-	}, [])
+	// const changeFilter = useCallback(function (todolistId: string, value: FilterValuesType) {
+	// 	const action = changeTodolistFilterAC( todolistId, value )
+	// 	dispatch(action)
+	// }, [])
 
 	const removeTodolist = useCallback(function (id: string) {
 		const thunk = removeTodolistTC(id)
@@ -85,16 +85,12 @@ export const TodolistsList: React.FC = () => {
 					return <Grid item key={tl.id}>
 						<Paper style={{padding: '10px'}}>
 							<Todolist
-								// id={tl.id}
-								// title={tl.title}
 								todolist = {tl}
 								tasks={allTodolistTasks}
-								// entityStatus={tl.entityStatus}
 								removeTask={removeTask}
-								changeFilter={changeFilter}
+								// changeFilter={changeFilter}
 								addTask={addTask}
 								changeTaskStatus={changeStatus}
-								// filter={tl.filter}
 								removeTodolist={removeTodolist}
 								changeTaskTitle={changeTaskTitle}
 								changeTodolistTitle={changeTodolistTitle}

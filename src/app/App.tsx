@@ -14,16 +14,16 @@ import { Menu } from '@material-ui/icons'
 import {TodolistsList} from '../features/TodolistsList/TodolistsList'
 import LinearDeterminate from "../common/LinearProgressCast";
 import {useDispatch, useSelector} from "react-redux";
-import { AppRootStateType } from "./store";
-import { initializeAppTC, RequestStatusType } from "./app-reducer";
-import { ErrorSnackbar } from "../common/ErrorSnackbar";
-import { Login } from "../features/Login/Login";
+import { AppRootStateType } from "./store"
+import {initializeAppTC, StatusType,} from "./app-reducer"
+import { ErrorSnackbar } from "../common/ErrorSnackbar"
+import { Login } from "../features/Login/Login"
 import { BrowserRouter, Route } from 'react-router-dom'
-import {logoutTC} from "../features/Login/auth-reducer";
+import {logoutTC} from "../features/Login/auth-reducer"
 
 function App() {
 
-    const status = useSelector<AppRootStateType, RequestStatusType>((state) => state.app.status)
+    const status = useSelector<AppRootStateType, StatusType>((state) => state.app.status)
     const isInitialized = useSelector<AppRootStateType, boolean>((state) => state.app.isInitialized)
     const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.auth.isLoggedIn)
     const dispatch = useDispatch()
